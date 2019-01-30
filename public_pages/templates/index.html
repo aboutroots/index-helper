@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Indexing helper</title>
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+
+    :root {
+        --sky: #CAEBF2;
+        --carbon: #a9a9a9;
+        --darkgrey: rgb(22, 22, 22);
+        --watermelon: #ff3b3f;
+        --neutral: #efefef;
+        --lightest: white;
+    }
+    html {
+      box-sizing: border-box;
+      background: var(--neutral);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 2.9em;
+      /* font-weight: 200; */
+      height: 100%;
+      color: var(--darkgrey);
+    }
+
+    body, #container {
+        height: 100%;
+        margin: 0;
+    }
+    a {
+        color: var(--watermelon);
+    }
+    
+    #content, #footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #content {
+        margin-bottom: 30%;
+    }
+    
+    #content .wrapper {
+        margin-top: 100px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-evenly; */
+        align-items: center; 
+    }
+
+
+    .help {
+        margin: 0;
+        text-align: center;
+      color: var(--darkgrey);
+      background-color: var(--sky);
+      padding: 15px 30px;
+      margin-top: 15px;  
+    }
+
+    .wrapper {
+        width: 80%;
+        padding-top: 20px;
+    }
+    h1 {
+        font-weight: 100;
+        text-align: center;
+        color: var(--carbon);
+    }
+    h1 span {
+        font-family: 'Playfair Display', serif;
+        padding: 10px;
+        color: var(--darkgrey); 
+    }
+    #wrapper-input {
+        display: flex;
+        width: 100%;
+        justify-content: stretch;
+        align-content: stretch;
+    }
+
+    #wrapper-input * > {
+        flex: 1;
+    }
+
+    #file-input {
+        color: var(--carbon);
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+    .custom-file-upload {
+        flex: 3;
+        border: 1px solid #ccc;
+        /* width: 100%; */
+        padding: 6px 12px;
+        cursor: pointer;
+        border: 10px solid #F7F7F7;
+        z-index: 2;
+        border-radius: 5px;
+        /* width: 100%; */
+        font-size: 1em;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+    }
+
+
+    .run-btn {
+        margin-left: 10px;
+        color: var(--watermelon);
+        cursor: pointer;
+        height: 100%;
+        width: 50px;
+        top: 10px; 
+        line-height: 100%;
+        width: 50px;
+  height: 50px;
+  position: relative;
+  top: 15px;
+  margin-right: 10px;
+  fill: #fff;
+  /* flex: 1; */
+    }
+
+
+
+    #file-input {
+        flex-grow: 3;
+        margin: 0;
+        text-align: center;
+        outline: 0;
+        border: 10px solid #F7F7F7;
+        /* width: 120%; */
+        left: -10%;
+        /* position: relative; */
+        top: 10px;
+        z-index: 2;
+        border-radius: 5px;
+        width: 100%;
+        font-size: 1em;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+    }
+
+    #download-img {
+        margin-top: 10%;
+    }
+
+    #footer {
+        padding-top: 10%;
+        padding-bottom: 5%;
+      background: var(--lightest);
+      flex: 1;
+        font-size: 0.5em;
+    }
+
+    #footer .wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    #footer .wrapper > * {
+        flex: 1;
+    }
+
+    #footer .wrapper > *:last-child {
+        text-align: right;
+    }
+
+    /* @media (max-width: 500px) {
+        p {
+            font-size: 10em;
+        }
+    } */
+    
+    </style>
+    <div id="container">
+        <div id="content">
+            <div class="wrapper">
+                <h1>Welcome to <span>indexing helper</span> tool!</h1>
+                <p class="help">Upload your index file (.txt)</p>
+                <p class="help">Wait while file is being processed</p>
+                <p class="help">Download your new, shiny index!</p>
+                <p>For a complete list of rules for an index file, look <a>here.</a></p>
+                <div id="wrapper-input">
+                <label for="file-input" class="custom-file-upload">
+                        <i class="fa fa-cloud-upload-alt"></i> Select file
+                </label>
+                <input type="file" id="file-input">
+                <i class="fas fa-play-circle run-btn"></i>
+                </div>
+                <img src="https://cdn.pixabay.com/photo/2016/12/18/13/45/download-1915753_640.png?attachment" id="download-img">
+            </div>
+        </div>
+        <div id="footer">
+            <div class="wrapper">
+                <p>About the autor</p>
+                <p>Made in Wrocław, Poland @ 2019<date></date></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    
+    </script>
+</body>
+</html>
