@@ -1,10 +1,15 @@
-from django.conf.global_settings import MEDIA_ROOT
+from django.conf import settings
+import os
 class IndexParser:
-    def __init__(self):
-        self.PATH = MEDIA_ROOT + "index.txt"
+    PATH = os.path.join(settings.MEDIA_ROOT, "index.txt")
 
-    def parse(self):
+    def __enter__(self):
+        # to overwrite index file
+        if os.path.exists(self.PATH):
+            os.remove(self.PATH) 
+    
+    def __exit__(self, exc_type, exc_value, exc_traceback):
         with open (self.PATH, 'a') as file:
             file.write("TEST")
-        
 
+        
