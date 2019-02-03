@@ -14,12 +14,11 @@ def index(request):
         try:
             with IndexParser() as _:
                 fs.save("index.txt", myfile)
-        except AttributeError as e:
+        except (AttributeError, AssertionError) as e:
             return JsonResponse({
                 'success': False,
                 'error': str(e)
             })
-
 
         return JsonResponse({
             'success': True,

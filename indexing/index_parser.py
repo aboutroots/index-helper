@@ -3,6 +3,7 @@ from functools import reduce
 import os
 import sys
 import icu
+import copy
 
 class Entry:
     """Single index entry and its subentries"""
@@ -53,6 +54,7 @@ class IndexParser:
 
     def parse(self, initial):
         operations = [
+            self._check_tier_growth,
             self._remove_spaces_from_between_dashes,
             self._add_dashes_at_begginning,
             self._sort_recursively,
@@ -80,6 +82,32 @@ class IndexParser:
                 outfile.write(line + "\n")
 
 # PRIVATE 
+    @staticmethod
+    def _raise_to_user(e, exc_info, file_ln):
+        """Raises exception with html message"""
+        exc_type, exc_obj, exc_tb = exc_info
+        code_ln = exc_tb.tb_lineno
+        raise type(e)('Some problem occurred in index with line:\n<pre style="font-weight: bold;"><code id="bad-line">{}</code></pre>\nPlease make sure that your input file is correct. If this error repeats, check line {} in parser code. <span style="font-style: italic;"> (Click to copy line to clipboard and dismiss this message) </span>'.format(file_ln, code_ln))
+
+    def _check_tier_growth(self, lines):
+        """
+        Raises error if there is more then one tier growing at the same time
+        """
+        last_dashes = 0
+        for file_ln in lines:
+            temp = copy.deepcopy(file_ln).replace(' ', '') 
+            i = 0
+            while temp[i] in ('–', '-'):
+                i += 1
+            try:
+                assert i <= last_dashes + 1
+            except AssertionError as e:
+                exc_info = sys.exc_info()
+                self._raise_to_user(e, exc_info, file_ln)
+            last_dashes = i            
+
+        return lines
+
     def _lines_to_entries(self, lines):
         """Groups lines into Entries"""
         items = list()
@@ -92,9 +120,8 @@ class IndexParser:
                 try:
                     current_item.add(file_ln)
                 except AttributeError as e: 
-                    exc_type, exc_obj, exc_tb = sys.exc_info()
-                    code_ln = exc_tb.tb_lineno
-                    raise type(e)('Some problem occurred in index with line:\n<pre style="font-weight: bold;"><code>{}</code></pre>\nPlease make sure that your input file is correct. If this error repeats, check line {} in parser code. <span style="font-style: italic;"> (Click to dismiss) </span>'.format(file_ln, code_ln))
+                    exc_info = sys.exc_info()
+                    self._raise_to_user(e, exc_info, file_ln)
             else:
                 # entry
                 if current_item:

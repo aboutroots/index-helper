@@ -56,5 +56,13 @@ runBtn.addEventListener("click", () => {
   }
 });
 
+//copy problematic line to clipboard on click
+infoBox.addEventListener("click", () => {
+  let range = document.createRange();
+  range.selectNode(document.getElementById("bad-line"));
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+  document.execCommand("copy");
+});
 // hide warning message on click
 infoBox.addEventListener("click", () => infoBox.classList.remove("expanded"));
