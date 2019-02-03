@@ -2,7 +2,6 @@ from django.conf import settings
 from functools import reduce
 import os
 import sys
-import icu
 import copy
 
 class Entry:
@@ -138,8 +137,21 @@ class IndexParser:
         Sorting entries with the key being the main entry part.
         Sorting is done with Polish locale comp. function
         """
-        collator = icu.Collator.createInstance(icu.Locale('pl_PL.UTF-8'))
-        return sorted(items, key=lambda item: collator.getSortKey(item.main))
+        return sorted(items, key=lambda item: self._get_sort_key(item.main))
+
+    def _get_sort_key(self, phrase):
+        """Custom key function"""
+        alphabet = [
+' ',',','’','.',':','!','@','#','$','_','|','\\','?','„','”','"',"'",'~','+','=','(',')','[',']','{','}','-','‒','–','—','―','0','1','2','3','4','5','6','7','8','9','a','ą','b','c','ć','d','e','ę','f','g','h','i','j','k','l','ł','m','n','ń','o','ó','p','q','r','s','ś','t','u','v','w','x','y','z','ź','ż','A','Ą','B','C','Ć','D','E','Ę','F','G','H','I','J','K','L','Ł','M','N','Ń','O','Ó','P','Q','R','S','Ś','T','U','V','W','X','Y','Z','Ź','Ż'
+        ]
+        result = []
+        for c in phrase:
+            try:
+                result.append(alphabet.index(c))
+            except IndexError:
+                result.append(999)
+        return result
+
 
     def _entries_to_lines(self, items):
         """Dumps Entries into lines"""
