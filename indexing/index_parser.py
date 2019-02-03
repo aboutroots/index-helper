@@ -58,7 +58,8 @@ class IndexParser:
             self._sort_recursively,
             self._insert_spaces_between_dashes,
             self._remove_dashes_at_beginning,
-            self._insert_empty_lines
+            self._insert_empty_lines,
+            self._strip_first_last_empty
         ]
         return reduce((lambda x, func: func(x)), operations, initial)
 
@@ -207,5 +208,13 @@ class IndexParser:
             else:
                 new_lines.append(line)
         return new_lines
+
+    def _strip_first_last_empty(self, lines):
+        """Deletes first / last lines if these are ampty"""
+        if not lines[0]:
+            lines = lines[1:]
+        if not lines[-1]:
+            lines = lines[:-1]
+        return lines
 
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-from indexing.parser import IndexParser
+from indexing.index_parser import IndexParser
 from django.http import JsonResponse
 import os
 
