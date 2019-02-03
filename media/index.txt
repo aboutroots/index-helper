@@ -1,22 +1,21 @@
-C
-Ccccccc, asdf
-- cccc
--- ffffff
---- hhhh
---- gggg
------ x
-- bbbbb
--- ddddd
---- eeee
--- cccc
-- aaaa
--- bbbb
--- aaaa
 A
 Aaaaaaaaa
-- zzz
--- żżżżżż
-- xxx
--- yyy
+– xxx
+– – yyy
+– zzz
+– – żżżżżż
 
-
+C
+Ccccccc, asdf
+– aaaa
+– – aaaa
+– – bbbb
+– bbbbb
+– – cccc
+– – ddddd
+– – – eeee
+– cccc
+– – ffffff
+– – – gggg
+– – – – x
+– – – hhhh
