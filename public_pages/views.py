@@ -2,11 +2,11 @@ from django.shortcuts import render
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from indexing.parser import IndexParser
+from django.http import JsonResponse
 import os
 
 # Create your views here.
 def index(request):
-    # import ipdb; ipdb.set_trace();
     if request.method == 'POST' and request.FILES['my_file']:
         myfile = request.FILES['my_file']
         fs = FileSystemStorage()
@@ -14,9 +14,11 @@ def index(request):
         with IndexParser() as _:
             fs.save("index.txt", myfile)
     
-        return render(request, 'index.html', {
-            'uploaded_file_url': '/media/index.txt'
-        })
+        data = {
+            'uploaded_file_url': settings.MEDIA_URL + 'index.txt'
+        }
+        return JsonResponse(data)
+
     return render(request, 'index.html')
 
 

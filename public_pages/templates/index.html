@@ -3,8 +3,8 @@
 <div class="wrapper">
   <h1>Welcome to </br><span>indexing helper</span> tool!</h1>
   <p class="help hvr-pulse">Upload your book index file (.txt)</p>
-  <p class="help hvr-pulse">Wait while file is being processed</p>
-  <p class="help hvr-pulse">Download your new, shiny index!</p>
+  <p class="help hvr-pulse">Click on the fat orange arrow</p>
+  <p class="help hvr-pulse">Download your new, shiny index from below!</p>
   <p>For a complete list of rules for an index file, look <a href="/rules">here.</a></p>
 
   <div id="wrapper-input">
@@ -22,12 +22,10 @@
     </div>
   </div>
 
-  {% if uploaded_file_url %}
-  <div class="big-icon-wrapper hvr-icon-sink">
-    <a href="{{ uploaded_file_url }}" download="index_new.txt">
+  <div id="download-wrapper" class="big-icon-wrapper hvr-icon-sink hidden">
+    <a href="" download="index_new.txt">
       <i id="download-icon" class="fa fa-download fa-lg"> index_new.txt</i>
     </a>
   </div>
-  {% endif %}
 </div>
 {% endblock %}

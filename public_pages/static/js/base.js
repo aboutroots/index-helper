@@ -16,13 +16,23 @@ fileInput.onchange = () => {
 // submit form
 const runBtn = document.querySelector(".run-btn");
 const fileForm = document.querySelector("#file-form");
-const data = new URLSearchParams(new FormData(fileForm));
+const downloadWrapper = document.querySelector("#download-wrapper");
+const downloadLink = document.querySelector("#download-wrapper a");
 runBtn.addEventListener("click", () => {
   if (fileInput.files.length) {
-    fetch('', {
-        method: 'post',
-        body: data,
-    })
-    .then();
+    const formData = new FormData(fileForm);
+    const options = {
+      method: 'POST',
+      body: formData,
+    };
+    fetch('', options)
+      .then(resp => resp.json())
+      .then( json => {
+        downloadWrapper.classList.toggle("hidden");
+        downloadLink['href'] = json['uploaded_file_url']
+      });
   }
 });
+
+// TODO: parser
+// todo: heroku
