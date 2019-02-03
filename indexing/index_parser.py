@@ -84,22 +84,23 @@ class IndexParser:
         """Groups lines into Entries"""
         items = list()
         current_item = None
-        for line in lines:
-            if not line:
+        for file_ln in lines:
+            if not file_ln:
                 continue
-            if line[0] in ('-', '–'):
+            if file_ln[0] in ('-', '–'):
                 # subentry
                 try:
-                    current_item.add(line)
-                except AttributeError:
-                    print("\nError!!\n{}".format(line))
-                    sys.exit()
+                    current_item.add(file_ln)
+                except AttributeError as e: 
+                    exc_type, exc_obj, exc_tb = sys.exc_info()
+                    code_ln = exc_tb.tb_lineno
+                    raise type(e)('Some problem occurred in index with line:\n<pre style="font-weight: bold;"><code>{}</code></pre>\nPlease make sure that your input file is correct. If this error repeats, check line {} in parser code. <span style="font-style: italic;"> (Click to dismiss) </span>'.format(file_ln, code_ln))
             else:
                 # entry
                 if current_item:
                     current_item.process()
                     items.append(current_item)
-                current_item = Entry(line)
+                current_item = Entry(file_ln)
 
         current_item.process()
         items.append(current_item)

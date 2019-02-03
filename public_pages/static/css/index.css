@@ -52,7 +52,10 @@ p {
 }
 
 #rules li {
+  margin-top: 7px;
+  padding: 6px 15px;
   word-wrap: break-word;
+  border-radius: 3px;
 }
 
 #content,
@@ -103,9 +106,10 @@ h1 {
 
 h2 {
   color: var(--darkgrey);
-  background-color: var(--sky);
   padding: 10px 20px;
+  padding-left: 0px;
   font-weight: 100;
+  border-radius: 6px;
 }
 
 h1 span {
@@ -184,13 +188,44 @@ h1 span {
   font-size: 0.6em;
   cursor: pointer;
 }
+
 #download-wrapper {
-  transition: opacity 0.5s linear, margin-top 0.5s step-start, z-index 0.5s step-start;
-}
-.hidden {
+  height: 0px;
   opacity: 0;
-  z-index: -5;
-  transition-timing-function: linear, step-end, step-end;
+}
+
+#download-wrapper a {
+  pointer-events: none;
+  cursor: default;
+}
+#download-wrapper i {
+  height: 0px;
+}
+#info-box {
+  pointer-events: none;
+  cursor: default;
+  border: none;
+  opacity: 0;
+  height: 0px;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  max-width: 40%;
+  box-shadow: 0 0 5px rgba(253, 40, 40, 0.12), inset 0 0 2px rgba(121, 18, 18, 0.19);
+  background: var(--neutral);
+}
+
+.expanded a, #info-box.expanded  {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+.expanded {
+  height: 100% !important;
+  opacity: 1 !important;
+}
+.expanded i {
+  height: 100% !important;
 }
 
 #footer {
@@ -213,6 +248,27 @@ h1 span {
 
 #footer .wrapper > *:last-child {
   text-align: right;
+}
+
+.code-columns {
+  display: flex;
+  align-content: space-between;
+  align-items: space-between;
+  justify-content: baseline;
+  width: 50%;
+  
+}
+
+.code-columns > pre {
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-right: 10%;
+  flex: 1;
+  box-shadow: 0 0 2px rgba(253, 40, 40, 0.12), inset 0 0 2px rgba(121, 18, 18, 0.19);
+}
+
+.rules-wrapper {
+  align-items: normal !important;
 }
 
 @media only screen and (min-width: 460px) {
