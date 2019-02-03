@@ -4,10 +4,12 @@ import os
 import sys
 import copy
 
+
 class Entry:
     """Single index entry and its subentries"""
+
     def __init__(self, main):
-        self.main = main  # main entry part 
+        self.main = main  # main entry part
         self.subitems = []  # "dashed" subentries
         self.letter = self.main[0].upper()
 
@@ -32,6 +34,7 @@ class Entry:
             new_subitems.append("".join(new_subitem))
         self.subitems = new_subitems
 
+
 class IndexParser:
     """Index parsing utilities. Can be used as a context manager to cleanup old
     index file before proceeding
@@ -40,16 +43,16 @@ class IndexParser:
 
     def __enter__(self):
         self.cleanup()
-    
+
     def __exit__(self, exc_type, exc_value, exc_traceback):
         initial = self.load_file()
         parsed = self.parse(initial)
-        self.save_file(parsed)        
+        self.save_file(parsed)
 
     def cleanup(self):
         # to overwrite index file
         if os.path.exists(self.PATH):
-            os.remove(self.PATH) 
+            os.remove(self.PATH)
 
     def parse(self, initial):
         operations = [
@@ -80,7 +83,7 @@ class IndexParser:
             for line in lines:
                 outfile.write(line + "\n")
 
-# PRIVATE 
+# PRIVATE
     @staticmethod
     def _raise_to_user(e, exc_info, file_ln):
         """Raises exception with html message"""
@@ -94,7 +97,7 @@ class IndexParser:
         """
         last_dashes = 0
         for file_ln in lines:
-            temp = copy.deepcopy(file_ln).replace(' ', '') 
+            temp = copy.deepcopy(file_ln).replace(' ', '')
             i = 0
             while temp[i] in ('–', '-'):
                 i += 1
@@ -103,7 +106,7 @@ class IndexParser:
             except AssertionError as e:
                 exc_info = sys.exc_info()
                 self._raise_to_user(e, exc_info, file_ln)
-            last_dashes = i            
+            last_dashes = i
 
         return lines
 
@@ -118,7 +121,7 @@ class IndexParser:
                 # subentry
                 try:
                     current_item.add(file_ln)
-                except AttributeError as e: 
+                except AttributeError as e:
                     exc_info = sys.exc_info()
                     self._raise_to_user(e, exc_info, file_ln)
             else:
@@ -142,7 +145,7 @@ class IndexParser:
     def _get_sort_key(self, phrase):
         """Custom key function"""
         alphabet = [
-' ',',','’','.',':','!','@','#','$','_','|','\\','?','„','”','"',"'",'~','+','=','(',')','[',']','{','}','-','‒','–','—','―','0','1','2','3','4','5','6','7','8','9','a','ą','b','c','ć','d','e','ę','f','g','h','i','j','k','l','ł','m','n','ń','o','ó','p','q','r','s','ś','t','u','v','w','x','y','z','ź','ż','A','Ą','B','C','Ć','D','E','Ę','F','G','H','I','J','K','L','Ł','M','N','Ń','O','Ó','P','Q','R','S','Ś','T','U','V','W','X','Y','Z','Ź','Ż'
+            ' ', ',', '’', '.', ':', '!', '@', '#', '$', '_', '|', '\\', '?', '„', '”', '"', "'", '~', '+', '=', '(', ')', '[', ']', '{', '}', '-', '‒', '–', '—', '―', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'ą', 'b', 'c', 'ć', 'd', 'e', 'ę', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'ł', 'm', 'n', 'ń', 'o', 'ó', 'p', 'q', 'r', 's', 'ś', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ź', 'ż', 'A', 'Ą', 'B', 'C', 'Ć', 'D', 'E', 'Ę', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'Ł', 'M', 'N', 'Ń', 'O', 'Ó', 'P', 'Q', 'R', 'S', 'Ś', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ź', 'Ż'
         ]
         result = []
         for c in phrase:
@@ -151,7 +154,6 @@ class IndexParser:
             except IndexError:
                 result.append(999)
         return result
-
 
     def _entries_to_lines(self, items):
         """Dumps Entries into lines"""
@@ -168,7 +170,6 @@ class IndexParser:
                 False otherwise
         """
         return all([line[0] not in ('-', '–') for line in lines])
-
 
     def _sort_recursively(self, lines):
         """Recursively sort every tier of subentries"""
@@ -256,5 +257,3 @@ class IndexParser:
         if not lines[-1]:
             lines = lines[:-1]
         return lines
-
-
