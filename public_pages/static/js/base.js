@@ -3,6 +3,8 @@ const date = document.querySelector("#date");
 let year = new Date().getFullYear();
 date.innerHTML = year;
 
+// set help items opacity to 1 after 1
+
 // update label text
 const fileInput = document.querySelector("#file-input");
 const uploadLabel = document.querySelector("#upload-label");

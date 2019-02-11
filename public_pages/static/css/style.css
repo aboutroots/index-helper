@@ -25,7 +25,6 @@ body {
 
 a {
   color: var(--watermelon);
-  font-family: "Open Sans", sans-serif;
   text-decoration: none;
 }
 
@@ -39,9 +38,8 @@ a {
   );
 }
 
-p {
-}
 .help {
+  opacity: 0;
   color: var(--darkgrey);
   background-color: var(--sky);
   border-radius: 2px;
@@ -130,4 +128,55 @@ h1 span {
 .code-columns > pre:last-child {
   box-shadow: 0 0 2px rgba(40, 253, 40, 0.7),
     inset 0 0 2px rgba(18, 121, 23, 0.7);
+}
+
+.slide-left, .slide-right {
+  animation-duration: 500ms; /* the duration of the animation */
+  animation-timing-function: ease-out; /* how the animation will behave */
+  animation-delay: 0; /* how long to delay the animation from starting */
+  animation-iteration-count: 1; /* how many times the animation will play */
+  animation-name: slideInFromLeft; /* the name of the animation we defined above */
+  opacity: 1;
+}
+.slide-left {
+  animation-name: slideInFromLeft; /* the name of the animation we defined above */
+}
+.slide-right {
+  animation-name: slideInFromRight; /* the name of the animation we defined above */
+}
+.d0 {
+  animation-delay: 0; 
+}
+.d1 {
+  animation-delay: 100ms; 
+}
+.d2 {
+  animation-delay: 200ms;  
+}
+
+@keyframes slideInFromLeft {
+  0% {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
+  50% {
+      opacity:1;
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+
+@keyframes slideInFromRight {
+  0% {
+      transform: translateX(+100%);
+      opacity: 0;
+  }
+  50% {
+      opacity:1;
+  }
+  100% {
+      transform: translateX(0);
+  }
 }
