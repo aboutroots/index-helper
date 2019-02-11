@@ -1,23 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="wrapper rules-wrapper">
-    <div class='back'>
-        <a href="/"><p><i class="fa fa-arrow-left"></i> BACK</p></a>
-    </div> 
-    <h2>Below is the set of rules for a correct index file. This application will
-    do whatever it can to make your file match these criteria.</h2>
+<div class="rules-wrapper">
+    <div class="back">
+    <a href="/"
+        ><p><i class="fa fa-arrow-left"></i></p></a
+    >
+    </div>
+    <h2>
+    Below is the set of rules for a correct index file. This application
+    will do whatever it can to make your file match these criteria.
+    </h2>
     <ol id="rules">
-        <li>There should be no white space at the beginning and at the end of the file.</li>
-        <li>There should be an empty line before every new index letter.</li>
-        <li>First tier of entries does not have spaces nor dashes at the beginning.</li>
-        <li>Every next tier have a new solid dash and a space before the entry.</li>
-        <li>Tiers can only "grow" per one tier at the time.</li>
-        <li>Entries on every tier are sorted within their own group.</li>
-        <li>Sorting is done alphabetically according to Polish dictionary.</li>
+    <li>
+        There should be no white space at the beginning and at the end of
+        the file.
+    </li>
+    <li>
+        There should be an empty line before every new index letter.
+    </li>
+    <li>
+        First tier of entries does not have spaces nor dashes at the
+        beginning.
+    </li>
+    <li>
+        Every next tier have a new solid dash and a space before the
+        entry.
+    </li>
+    <li>Tiers can only "grow" per one tier at the time.</li>
+    <li>Entries on every tier are sorted within their own group.</li>
+    <li>
+        Sorting is done alphabetically according to Polish dictionary.
+    </li>
     </ol>
     <h2>Example before / after comparison:</h2>
     <div class="code-columns">
-    <pre><code>
+    <pre class="hvr-pulse"><code>
 C
 Comprehensive
 - cattle
@@ -39,7 +56,7 @@ Assembly
 - xenon
 -- year 1984
     </code></pre>
-    <pre><code>
+    <pre class="hvr-pulse"><code>
 A
 Assembly
 – xenon
@@ -62,6 +79,6 @@ Comprehensive
 – – – Guest A.
 – – – – x-ray
     </code></pre>
-</div>
     </div>
+</div>
 {% endblock %}

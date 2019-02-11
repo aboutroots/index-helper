@@ -1,32 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="wrapper">
-  <h1>Welcome to </br><span>indexing helper</span> tool!</h1>
-  <p class="help hvr-pulse">Upload your book index file (.txt)</p>
-  <p class="help hvr-pulse">Click on the fat orange arrow</p>
-  <p class="help hvr-pulse">Download your new, shiny index from below!</p>
-  <p>For a complete list of rules for an index file, look <a href="/rules">here.</a></p>
-
-  <div id="wrapper-input">
-    <form id="file-form" method="post" enctype="multipart/form-data" class="hvr-wobble-top">
-      {% csrf_token %}
-      <label for="file-input" class="custom-file-upload">
-        <i class="fa fa-cloud-upload-alt"></i>
-        <span id="upload-label">Select a file</span>
-      </label>
-      <input type="file" id="file-input" name="my_file">
-    </form>
-
-    <div id="run-icon-wrapper" class="big-icon-wrapper">
-      <i class="fas fa-play-circle run-btn"></i>
-    </div>
-  </div>
-  <div id="info-box"></div>
-
-  <div id="download-wrapper" class="big-icon-wrapper hvr-icon-sink ">
-    <a href="" download="index_new.txt">
-      <i id="download-icon" class="fa fa-download fa-lg"> index_new.txt</i>
-    </a>
-  </div>
+<h1>Welcome to </br><span>indexing helper</span> tool!</h1>
+<p class="help hvr-pulse">Upload your book index file (.txt)</p>
+<p class="help hvr-pulse">Click on the fat orange arrow</p>
+<p class="help hvr-pulse">Download your new, shiny index from below!</p>
+<p>For a complete list of rules for an index file, look <a href="/rules">here.</a></p>
+<div id="wrapper-input">
+  <form id="file-form">
+    {% csrf_token %}
+    <label for="file-input" id="upload-label">
+      <i class="fa fa-cloud-upload-alt"></i>
+      <span id="upload-text">Select a file</span>
+    </label>
+    <input type="file" id="file-input" name="my_file" />
+  </form>
+  <i id="run-icon" class="fa fa-play-circle hvr-pulse"></i>
+</div>
+<div id="resp-box">
+  resp-box
 </div>
 {% endblock %}

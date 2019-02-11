@@ -11,18 +11,19 @@ if (fileInput) {
   fileInput.onchange = () => {
     let filePath = fileInput.value.split("\\");
     let fileName = filePath[filePath.length - 1];
-    uploadLabel.textContent = fileName;
+    uploadLabel.innerHTML = `<i class="fa fa-cloud-upload-alt"></i>
+      <span id="upload-text">${fileName || "Select a file"}</span>`;
   };
 }
 
 // submit form
-const runBtn = document.querySelector(".run-btn");
+const runBtn = document.querySelector("#run-icon");
 const fileForm = document.querySelector("#file-form");
-const downloadWrapper = document.querySelector("#download-wrapper");
-const downloadLink = document.querySelector("#download-wrapper a");
-const infoBox = document.querySelector("#info-box");
-downloadWrapper.style.transition = "all 0.5s";
-infoBox.style.transition = "all 0.5s";
+const respBox = document.querySelector("#resp-box");
+// const downloadLink = document.querySelector("#download-wrapper a");
+// const infoBox = document.querySelector("#info-box");
+// downloadWrapper.style.transition = "all 0.5s";
+// infoBox.style.transition = "all 0.5s";
 
 runBtn.addEventListener("click", () => {
   if (fileInput.files.length) {
@@ -35,34 +36,34 @@ runBtn.addEventListener("click", () => {
       .then(resp => resp.json())
       .then(json => {
         if (json.success) {
-          downloadWrapper.classList.add("expanded");
-          downloadLink.href = json.uploaded_file_url;
-          infoBox.innerHTML = "";
-          infoBox.classList.remove("expanded");
+          respBox.classList.add("expanded");
+          respBox.innerHTML = `<a href="${json.uploaded_file_url}" download="index_new.txt"><i class="fa fa-download"> <span>index_new.txt</span></i></a>`;
         } else {
-          infoBox.innerHTML = json.error;
-          infoBox.classList.add("expanded");
-          downloadWrapper.classList.remove("expanded");
           console.log(json.error);
+          respBox.innerHTML = json.error;
+          respBox.classList.add("expanded");
+          // downloadWrapper.classList.remove("expanded");
         }
       })
       .catch(reason => {
         console.log(`Promise rejected with reason: ${reason}`);
-        infoBox.textContent =
+        respBox.textContent =
           "Some strange error occurred. Please contact let me (aboutroots) know about it!";
-        infoBox.classList.add("expanded");
-        downloadWrapper.classList.remove("expanded");
+        respBox.classList.add("expanded");
+        // downloadWrapper.classList.remove("expanded");
       });
   }
 });
 
 //copy problematic line to clipboard on click
-infoBox.addEventListener("click", () => {
+respBox.addEventListener("click", () => {
   let range = document.createRange();
-  range.selectNode(document.getElementById("bad-line"));
+  let badLine = document.getElementById("bad-line");
+  if (!badLine) return
+  range.selectNode(badLine);
   window.getSelection().removeAllRanges();
   window.getSelection().addRange(range);
   document.execCommand("copy");
 });
 // hide warning message on click
-infoBox.addEventListener("click", () => infoBox.classList.remove("expanded"));
+respBox.addEventListener("click", () => respBox.classList.remove("expanded"));
