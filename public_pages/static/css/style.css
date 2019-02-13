@@ -92,6 +92,12 @@ h1 span {
   transition-property: opacity, top, visibility;
   transition-delay: 0ms, 0ms, 200ms;
 }
+
+#resp-box.spinner-wrap {
+  box-shadow: none;
+  background: none;
+}
+
 #resp-box.expanded {
   opacity: 1 !important;
   visibility: visible !important;
