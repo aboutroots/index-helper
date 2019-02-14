@@ -71,7 +71,7 @@ function handleForm() {
         respBox.classList.remove("spinner-wrap");
         console.log(`Promise rejected with reason: ${reason}`);
         respBox.textContent =
-          "Some strange error occurred. Please contact let me (aboutroots) know about it!";
+          "Some strange error occurred. Please let me (aboutroots) know about it!";
         respBox.classList.add("expanded");
       });
   }

@@ -181,13 +181,13 @@ class IndexParser:
     def _get_sort_key(self, phrase):
         """Custom key function. Polish alphabetical case insensitive"""
         alphabet = [
-            ' ', ',', '’', '.', ':', '!', '@', '_', '|', '\\', '?', '„', '”', '"', "'", '~', '+', '=', '(', ')', '[', ']', '{', '}', '-', '‒', '–', '—', '―', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'Ą', 'B', 'C', 'Ć', 'D', 'E', 'Ę', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'Ł', 'M', 'N', 'Ń', 'O', 'Ó', 'P', 'Q', 'R', 'S', 'Ś', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ź', 'Ż'
+            ' ', ',', '’', '.', ':', '!', '@', '_', '|', '\\', '?', '„', '”', '"', "'", '~', '+', '=', '(', ')', '[', ']', '{', '}', '-', '‒', '–', '—', '―', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'Ą', 'B', 'C', 'Ć', 'D', 'E', 'Ę', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'Ł', 'M', 'N', 'Ń', 'O', 'Ó', 'P', 'Q', 'R', 'S', 'Ś', 'T', 'U', 'Ü', 'V', 'W', 'X', 'Y', 'Z', 'Ź', 'Ż'
         ]
         result = []
         for c in phrase:
             try:
                 result.append(alphabet.index(c.upper()))
-            except IndexError:
+            except (IndexError, ValueError):
                 if c in ['$', '#', '&']: # bold and italic indicators
                     result.append(0)
                 else:
