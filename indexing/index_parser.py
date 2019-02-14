@@ -4,6 +4,7 @@ import os
 import sys
 import copy
 import re
+from docx import Document
 
 
 class Entry:
@@ -41,6 +42,7 @@ class IndexParser:
     index file before proceeding
     """
     PATH = os.path.join(settings.MEDIA_ROOT, "index.txt")
+    DOCX_PATH = os.path.join(settings.MEDIA_ROOT, "index.docx")
 
     def __enter__(self):
         self.cleanup()
@@ -54,6 +56,8 @@ class IndexParser:
         # to overwrite index file
         if os.path.exists(self.PATH):
             os.remove(self.PATH)
+        if os.path.exists(self.DOCX_PATH):
+            os.remove(self.DOCX_PATH)
 
     def parse(self, initial):
         operations = [
@@ -69,21 +73,27 @@ class IndexParser:
         ]
         return reduce((lambda x, func: func(x)), operations, initial)
 
-    def load_file(self):
+    def load_file(self, docx=False):
         """Loads file contents"""
-        with open(self.PATH, 'r') as file:
-            lines = []
-            for line in [line.strip() for line in file.readlines()]:
-                if not line:
-                    continue
-                lines.append(line)
+        if docx:
+            lines = self._load_docx()
+        else:
+            with open(self.PATH, 'r') as file:
+                lines = []
+                for line in [line.strip() for line in file.readlines()]:
+                    if not line:
+                        continue
+                    lines.append(line)
         return lines
 
-    def save_file(self, lines):
+    def save_file(self, lines, docx=False):
         """Saves an output file"""
-        with open(self.PATH, 'w') as outfile:
-            for line in lines:
-                outfile.write(line + "\n")
+        if docx:
+            self._save_docx(lines)
+        else:
+            with open(self.PATH, 'w') as outfile:
+                for line in lines:
+                    outfile.write(line + "\n")
 
 # PRIVATE
     @staticmethod
@@ -111,6 +121,30 @@ class IndexParser:
             last_dashes = i
 
         return lines
+
+    def _load_docx(self):
+        doc = Document(self.DOCX_PATH)
+        lines = []
+        for para in doc.paragraphs: 
+            line = []
+            for r in para.runs:
+                text = r.text
+                if r.italic and r.bold:
+                    text = "&&{}&&".format(text)
+                elif r.italic:
+                    text = "##{}##".format(text)
+                elif r.bold:
+                    text = "$${}$$".format(text)
+                line.append(text)
+            lines.append(''.join(line))
+        return lines
+
+    def _save_docx(self, lines):
+        pass
+        # TODO: encode lines into document and save it
+        # TODO: handle docx in context manager
+        # TODO: enable docx on frontend and pass parameter to IndexHelper
+
 
     def _lines_to_entries(self, lines):
         """Groups lines into Entries"""
@@ -147,14 +181,17 @@ class IndexParser:
     def _get_sort_key(self, phrase):
         """Custom key function. Polish alphabetical case insensitive"""
         alphabet = [
-            ' ', ',', '’', '.', ':', '!', '@', '#', '$', '_', '|', '\\', '?', '„', '”', '"', "'", '~', '+', '=', '(', ')', '[', ']', '{', '}', '-', '‒', '–', '—', '―', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'Ą', 'B', 'C', 'Ć', 'D', 'E', 'Ę', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'Ł', 'M', 'N', 'Ń', 'O', 'Ó', 'P', 'Q', 'R', 'S', 'Ś', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ź', 'Ż'
+            ' ', ',', '’', '.', ':', '!', '@', '_', '|', '\\', '?', '„', '”', '"', "'", '~', '+', '=', '(', ')', '[', ']', '{', '}', '-', '‒', '–', '—', '―', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'Ą', 'B', 'C', 'Ć', 'D', 'E', 'Ę', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'Ł', 'M', 'N', 'Ń', 'O', 'Ó', 'P', 'Q', 'R', 'S', 'Ś', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ź', 'Ż'
         ]
         result = []
         for c in phrase:
             try:
                 result.append(alphabet.index(c.upper()))
             except IndexError:
-                result.append(999)
+                if c in ['$', '#', '&']: # bold and italic indicators
+                    result.append(0)
+                else:
+                    result.append(999)
         return result
 
     def _entries_to_lines(self, items):
