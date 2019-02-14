@@ -3,6 +3,7 @@ from functools import reduce
 import os
 import sys
 import copy
+import re
 
 
 class Entry:
@@ -62,6 +63,7 @@ class IndexParser:
             self._sort_recursively,
             self._insert_spaces_between_dashes,
             self._remove_dashes_at_beginning,
+            self._change_dashes_between_digits,
             self._insert_empty_lines,
             self._strip_first_last_empty
         ]
@@ -143,14 +145,14 @@ class IndexParser:
         return sorted(items, key=lambda item: self._get_sort_key(item.main))
 
     def _get_sort_key(self, phrase):
-        """Custom key function"""
+        """Custom key function. Polish alphabetical case insensitive"""
         alphabet = [
-            ' ', ',', '’', '.', ':', '!', '@', '#', '$', '_', '|', '\\', '?', '„', '”', '"', "'", '~', '+', '=', '(', ')', '[', ']', '{', '}', '-', '‒', '–', '—', '―', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'ą', 'b', 'c', 'ć', 'd', 'e', 'ę', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'ł', 'm', 'n', 'ń', 'o', 'ó', 'p', 'q', 'r', 's', 'ś', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ź', 'ż', 'A', 'Ą', 'B', 'C', 'Ć', 'D', 'E', 'Ę', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'Ł', 'M', 'N', 'Ń', 'O', 'Ó', 'P', 'Q', 'R', 'S', 'Ś', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ź', 'Ż'
+            ' ', ',', '’', '.', ':', '!', '@', '#', '$', '_', '|', '\\', '?', '„', '”', '"', "'", '~', '+', '=', '(', ')', '[', ']', '{', '}', '-', '‒', '–', '—', '―', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'Ą', 'B', 'C', 'Ć', 'D', 'E', 'Ę', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'Ł', 'M', 'N', 'Ń', 'O', 'Ó', 'P', 'Q', 'R', 'S', 'Ś', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ź', 'Ż'
         ]
         result = []
         for c in phrase:
             try:
-                result.append(alphabet.index(c))
+                result.append(alphabet.index(c.upper()))
             except IndexError:
                 result.append(999)
         return result
@@ -197,6 +199,10 @@ class IndexParser:
         """Makes each line begin with a dash and a space"""
         return ['–{}'.format(l) if l[0] == '–' else
                 '– {}'.format(l) for l in lines]
+
+    def _change_dashes_between_digits(self, lines):
+        """Changes hyphens to dashes between page nubers"""
+        return [re.sub(r'(\d)-(\d)', r'\1–\2', line) for line in lines]
 
     def _insert_spaces_between_dashes(self, lines):
         """Adds spaces between dashes, from --- to - - - """
@@ -251,7 +257,7 @@ class IndexParser:
         return new_lines
 
     def _strip_first_last_empty(self, lines):
-        """Deletes first / last lines if these are ampty"""
+        """Deletes first / last lines if these are empty"""
         if not lines[0]:
             lines = lines[1:]
         if not lines[-1]:
