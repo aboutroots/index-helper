@@ -1,0 +1,54 @@
+version: 2
+jobs:
+  build-lint-test:
+    docker:
+      - image: circleci/python:3.6.1
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "requirements.txt" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: Install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+      - run:
+          name: Run linter
+          command: |
+            . venv/bin/activate
+            flake8 --extend-ignore=E501,E402 --exclude=ven
+      - run:
+          name: Run tests
+          command: |
+            . venv/bin/activate
+            pytest .
+  deploy:
+    docker:
+    - image: buildpack-deps:trusty
+    steps:
+    - checkout
+    - run:
+        name: Deploy Master to Heroku
+        command: |
+          git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+
+workflows:
+  version: 2
+  build-lint-test-deploy:
+    jobs:
+      - build-lint-test
+      - deploy:
+          requires:
+            - build-lint-test
+          filters:
+            branches:
+              only: master

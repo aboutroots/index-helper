@@ -1,10 +1,11 @@
-from django.shortcuts import render
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-from indexing.index_parser import IndexParser
 from django.http import JsonResponse
-import os
-import traceback
+from django.shortcuts import render
+
+from indexing.index_parser import IndexParser
+
+
 # Create your views here.
 def index(request):
     if request.method == 'POST' and request.FILES['my_file']:
@@ -30,5 +31,3 @@ def index(request):
 
 def rules(request):
     return render(request, 'rules.html')
-
-

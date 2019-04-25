@@ -1,9 +1,10 @@
-from django.conf import settings
-from functools import reduce
-import os
-import sys
 import copy
+import os
 import re
+import sys
+from functools import reduce
+
+from django.conf import settings
 from docx import Document
 
 
@@ -95,13 +96,15 @@ class IndexParser:
                 for line in lines:
                     outfile.write(line + "\n")
 
-# PRIVATE
+    # PRIVATE
     @staticmethod
     def _raise_to_user(e, exc_info, file_ln):
         """Raises exception with html message"""
         exc_type, exc_obj, exc_tb = exc_info
         code_ln = exc_tb.tb_lineno
-        raise type(e)('Some problem occurred in index with line:\n<pre style="font-weight: bold;"><code id="bad-line">{}</code></pre>\nPlease make sure that your input file is correct. If this error repeats, check line {} in parser code. <span style="font-style: italic;"> (Click to copy line to clipboard and dismiss this message) </span>'.format(file_ln, code_ln))
+        raise type(e)(
+            'Some problem occurred in index with line:\n<pre style="font-weight: bold;"><code id="bad-line">{}</code></pre>\nPlease make sure that your input file is correct. If this error repeats, check line {} in parser code. <span style="font-style: italic;"> (Click to copy line to clipboard and dismiss this message) </span>'.format(
+                file_ln, code_ln))
 
     def _check_tier_growth(self, lines):
         """
@@ -125,7 +128,7 @@ class IndexParser:
     def _load_docx(self):
         doc = Document(self.DOCX_PATH)
         lines = []
-        for para in doc.paragraphs: 
+        for para in doc.paragraphs:
             line = []
             for r in para.runs:
                 text = r.text
@@ -144,7 +147,6 @@ class IndexParser:
         # TODO: encode lines into document and save it
         # TODO: handle docx in context manager
         # TODO: enable docx on frontend and pass parameter to IndexHelper
-
 
     def _lines_to_entries(self, lines):
         """Groups lines into Entries"""
@@ -181,14 +183,19 @@ class IndexParser:
     def _get_sort_key(self, phrase):
         """Custom key function. Polish alphabetical case insensitive"""
         alphabet = [
-            ' ', ',', '’', '.', ':', '!', '@', '_', '|', '\\', '?', '„', '”', '"', "'", '~', '+', '=', '(', ')', '[', ']', '{', '}', '-', '‒', '–', '—', '―', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'Ą', 'B', 'C', 'Ć', 'D', 'E', 'Ę', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'Ł', 'M', 'N', 'Ń', 'O', 'Ó', 'P', 'Q', 'R', 'S', 'Ś', 'T', 'U', 'Ü', 'V', 'W', 'X', 'Y', 'Z', 'Ź', 'Ż'
+            ' ', ',', '’', '.', ':', '!', '@', '_', '|', '\\', '?', '„', '”',
+            '"', "'", '~', '+', '=', '(', ')', '[', ']', '{', '}', '-', '‒',
+            '–', '—', '―', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+            'A', 'Ą', 'B', 'C', 'Ć', 'D', 'E', 'Ę', 'F', 'G', 'H', 'I', 'J',
+            'K', 'L', 'Ł', 'M', 'N', 'Ń', 'O', 'Ó', 'P', 'Q', 'R', 'S', 'Ś',
+            'T', 'U', 'Ü', 'V', 'W', 'X', 'Y', 'Z', 'Ź', 'Ż'
         ]
         result = []
         for c in phrase:
             try:
                 result.append(alphabet.index(c.upper()))
             except (IndexError, ValueError):
-                if c in ['$', '#', '&']: # bold and italic indicators
+                if c in ['$', '#', '&']:  # bold and italic indicators
                     result.append(0)
                 else:
                     result.append(999)
@@ -281,7 +288,7 @@ class IndexParser:
 
     def _insert_empty_lines(self, lines):
         """
-        Inserts empty line after each line of length 1 (which indicates a new 
+        Inserts empty line after each line of length 1 (which indicates a new
         letter in index)
         """
         new_lines = []

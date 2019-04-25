@@ -1,9 +1,13 @@
 from django.conf import settings
+
 settings.configure()
-import sys, os
+import sys
+import os
+
 path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(path)
 from index_parser import IndexParser
+
 
 def test_end2end():
     data = [
@@ -64,6 +68,7 @@ def test_end2end():
     parsed = parser.parse(data)
     assert parsed == expected
 
+
 def test_alphabetical_order_ci():
     data = [
         'c',
@@ -92,6 +97,7 @@ def test_alphabetical_order_ci():
     parser = IndexParser()
     parsed = parser.parse(data)
     assert parsed == expected
+
 
 def test_hyphens():
     data = [
