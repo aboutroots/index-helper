@@ -1,22 +1,420 @@
-C
-Ccccccc, asdf
-- cccc
--- ffffff
---- hhhh
---- gggg
------ x
-- bbbbb
--- ddddd
---- eeee
--- cccc
-- aaaa
--- bbbb
--- aaaa
 A
-Aaaaaaaaa
-- zzz
--- żżżżżż
-- xxx
--- yyy
+ACO patrz: Asthma-COPD-Overlap
+Alergeny 141–142, 149
+Alergia 13–14, 29–32, 65, 69, 75–78, 150
+– czynniki ryzyka 29
+– diagnostyka 75–78
+– niedobór 92–93
+– objawy 29
+– podatność 76–77
+Amfetamina 100–101
+Amoksycylina 24, 45–47, 49
+Angina 25, 47–48
+– leczenie 47
+– ropna 47
+Antybiotyki 164
+– mechanizm działania 46
+Antybiotykooporność 45–46
+– czynniki wywołujące 45–46
+Antybiotykoterapia 39–46
+– drugiego rzutu 55–56
+– skutki uboczne 42–43
+– – alergia 42
+– – biegunka poantybiotykowa 42–43
+– wskazania 39–41
+Asthma-COPD-Overlap 99
+Astma 3–4, 7, 9, 11–16, 31–32, 59–60, 64–65, 68–74, 77–80, 82–88, 91–101, 103, 107, 116, 119, 124–125, 133, 142, 147, 151, 155, 157, 166
+– alergiczna 3, 96–98, 103, 141, 149, 151, 155, 157–158
+– atak 151
+– całoroczna 130
+– – z sezonowym zaostrzeniem 130
+– czas trwania leczenia 130
+– czynniki ryzyka zgonu 143
+– diagnostyka 87–88
+– etiologia 85–86
+– i POChP, nakładanie się 98–99
+– kontrola leczenia 132
+– leczenie 125, 129–134
+– lekka 130
+– neutrofilowa 78, 86
+– niealergiczna 97–98, 156–157
+– niestabilna 129
+– – postępowanie 132
+– objawy 86
+– optymalizacja leczenia 132–134
+– patogeneza 147
+– rozpoznanie w młodym wieku 96
+– – w starszym wieku 96
+– triada obturacji 86
+– występująca okresowo (sezonowa) 130
+– zaostrzenie 143–145
+– – czynnik wyzwalający 158
+– – diagnostyka różnicowa 144
+– – postępowanie 144–145
+– – zwiastuny 143–144
 
+B
+Bakteriemia 23
+Beta-bloker 144
+Beta-laktamy 25
+Beta-mimetyki 31, 112, 117–118, 131, 139
+– długo działający 131, 138
+– działania niepożądane 117
+– przeciwwskazania 118
+Biegunka poantybiotykowa 42–45
+BNP 102
+Bradykinina 10
+Bromek ipratropium 108
+Budezonid 114, 116, 126
 
+C
+Cefalosporyny 25–26, 46, 49
+Cefuroksym 47
+Cetyryzyna 129
+Chinolony 25–26
+Choroba Leśniowskiego-Crohna 43
+– wieńcowa 15
+– zapalna jelit 164
+Chrypka 105, 119–120, 133
+Clostridium difficile 43–45
+Cor pulmonale, patrz: serce płucne
+CRP 35–36
+Cyklezonid 105
+Cyprofloksacyna 25
+Cytokiny 78
+
+D
+Doksycyklina 26, 47
+Drżenie 5
+Duszność 5–6, 9, 14–15, 102–103, 135, 148, 150–151, 166
+– napadowa 143–145
+– – przyczyny 143
+– przyczyny 14
+– spoczynkowa 149
+– wdechowa 15
+– wydechowa 15
+– wysiłkowa 149
+Dyskrynia 86, 130
+
+E
+E.coli 38
+Eozynofile patrz: granulocyty kwasochłonne
+Eozynofilia 143
+
+F
+FENO patrz: pomiar NO w wydychanym powietrzu 132, 156, 158
+Fenoterol 108
+FEV1 6, 70–71, 81
+Fidaksomycyna 44
+Fleming, A. 24
+Flora fizjologiczna jamy ustnej 38
+Formoterol 105, 114, 116–117, 122–123, 131
+Furczenia 16, 150–151
+
+G
+Glikokortykosteroidy 60, 78, 80, 88, 93–94, 103, 112, 126, 148
+– domięśniowo 128
+– ogólnoustrojowe 124, 127–128
+– prawidłowa inhalacja 121–122
+– wziewne 119, 130–131, 138–139
+– – działania niepożądane 119–121
+– – potencjał działania 119
+Granulocyty kwasochłonne 65, 78, 82
+Gruźlica 28
+Grypa 33
+
+H
+H.influeznae 24–25, 46, 48–49, 53
+Hiperkrynia 86, 130
+Hipoksemia 6
+Histamina 85, 126
+
+I
+IgE całkowite 65
+Immunomodulacja 58
+Immunoterapia alergenowa 128–129, 150
+Infekcja bakteryjna, cechy 33
+– grzybicza 32
+– objawy 29
+– wirusowa, cechy 33
+Inhalacja przez maskę 110
+– błędy 115–116
+– kontrola 116
+– przez ustnik 110
+– technika 115–116
+– wady 104
+– zalety 104
+Inhalator 104–114, 143, 159
+– aktywowany wdechem 105–106
+– ciśnieniowy 105, 111, 113–115, 159
+– – przebieg inhalacji 105
+– – z mikronizowanymi (rozdrobnionymi) cząstkami leku 105
+– miękkiej mgły 110
+– suchego proszku 107–108, 111, 113–114, 116
+– – aktywowany wdechem 107–108
+– – przebieg inhalacji 108
+– – systemy jednodawkowe 107
+– – – wielodawkowe 107
+– z mieszaniną propelentu i alkoholu 105
+Inhibitory ACE 10
+– neuroaminidazy 33
+Interleukiny 78
+Ipratropium 114
+
+K
+Kaszel 9–10, 30–31, 144, 147–149, 151, 155, 166
+– jako powikłanie 13
+– nieproduktywny, przyczyny 13
+– ostry 10
+– – przyczyny 11
+– produktywny, przyczyny 13
+– przewlekły 10
+– – przyczyny 11
+– suchy 3
+– w infekcji bakteryjnej 31
+– – wirusowej 31
+– w reakcji alergicznej 31
+Katar 30
+– sienny 3, 72, 150, 165–166
+– – dolegliwości 165
+Kifoza 5
+KISS 125
+Klasyfikacja GOLD 49
+Kortyzon 148, 165
+Kotrimoksazol 47
+Kotynina 22–23
+Kromony 124–125, 130, 165
+Krztusiec 10
+Krzywa przepływ-objętość 67, 69–72, 81
+Kwestionariusz CAT, 140
+
+L
+LABA patrz: beta-mimetyk długo działający
+LAMA patrz: leki antycholinergiczne długo działające
+Leczenie celowane 125
+Legionella 53
+Leki antycholinergiczne 112, 118–119
+– antyhistaminowe 126–127, 165
+– antyleukotrienowe 124
+– długo działające 118–119, 138
+– działania niepożądane 118–119
+– krótko działające 118–119
+– przeciwzapalna 112
+– rozszerzające oskrzela 112, 117–119
+– – długo działające 119
+– – krótko działające 119
+– wielkość cząsteczek 108–109
+Lekooporność 24–25
+Leukocytogram 34
+Leukocyty 34
+
+M
+Makrolidy 24–26, 45, 47, 49
+Metronidazol 44
+Mikrobiom 42–43
+Mononukleoza zakaźna 47–48
+Montelukast 124, 165
+Moraxella catarrhalis 45–46, 49
+Mycoplasma pneumoniae 38, 53
+
+N
+Nadciśnienie tętnicze 101–102, 144
+Nadreaktywność oskrzeli 10, 58–61, 156–157
+– diagnostyka 59
+– leczenie 60
+– objawy kliniczne 59
+Nebulizator 108–111, 113–115
+– użytkowanie 109–110
+– wskazania 109
+Nebulizator, zalecanie 110
+NHAP patrz: zapalenie płuc nabyte w domu opieki
+Niewydolność nadnerczy 103, 128
+Niewydolność serca 9–11, 102
+– dekompensacja 102
+– lewokomorowa 144
+Nieżyt nosa alergiczny 85, 126–129, 133
+– leczenie 126–129
+Nowotwór tchawicy 102
+
+O
+OB, patrz: odczyn Biernackiego
+Obrzęk płuc 9
+Obrzęki obwodowe 102
+Obturacja 3–4, 15, 70–73, 79, 82, 85, 88–89, 96–97, 101, 156
+– funkcjonalna 82, 86
+– nieodwracalna 135
+Odczulanie patrz: immunoterapia alergenowa
+Odczyn Biernackiego 34
+Odgłos oddechowy suchy 16
+– opukowy bębenkowy 16
+– – nadmiernie jawny 91
+Ofloksacyna 36
+Osteoporoza 5, 94, 119, 138, 150
+
+P
+Patogen, identyfikacja, wskazania 36
+Patogeny typowe 45
+PEF patrz: przepływ wydechowy szczytowy
+Penicyliny 24, 26, 45
+Pęcherzyki rozedmowe 5–6, 142
+Pierścień gardłowy Waldeyera 32, 151
+Pikflometr 74, 144, 151
+Pleśniawka 120
+Plwocina, badanie 82
+– indukowana 37
+Pojemność minutowa serca 6
+Pojemność życiowa płuc 6, 27
+Polipragmazja 93
+Polipy nosa 97
+Pomiar NO w wydychanym powietrzu 78–81, 84, 132, 156, 158
+– wskazania 78
+Prednizolon 47, 60, 124, 127–128, 131
+Prokalcytonina 34–35
+Próba kaszlu 16
+Próba prowokacyjna spirometryczna 67–72, 79, 84, 156, 158
+– wskazania 68
+Próba prowokacyjna z histaminą 60, 84
+Próba prowokacyjna z metacholiną 60, 84
+Przepływ wydechowy szczytowy 60, 72–75, 83–84, 132, 144, 156, 158
+– pomiar, wskazania 73–75
+Przewlekła obturacyjna choroba płuc 4, 9, 13–15, 17, 23, 49–51, 64–65, 67–68, 70–73, 78, 80, 82, 84, 88–101, 114, 116, 119, 124–125, 142, 156
+– a choroby towarzyszące 92–93
+– a duszność 90
+– a flegma 90
+– a glikokortykosteroidy 94–95
+– a kaszel 90
+– a zapadalność na infekcje 90–91
+– bez cech obturacji 92
+– charakterystyka 89
+– diagnostyka 89
+– etiologia 89
+– filary leczenia 135, 139
+– leczenie 134–141
+– – chirurgiczne 140
+– – długoterminowe 137–138
+– – ogólnoustrojowe 139
+– – postać lekka 137
+– leki 126
+– objawy 90–91
+– redukcja objawów 134
+– rehabilitacja 136
+– rokowanie 134
+– szczepienia 136
+– zaostrzenie 49–51, 134
+– – hospitalizacja 49
+– – leczenie 49–51
+– – – antybiotyki 50
+– – – glikokortykosteroidy 50
+– – objawy kliniczne 49
+– – patogeny 49
+– zapobieganie zaostrzeniom 134
+Pseudomonas aeruginosa 50
+PZP patrz: zapalenie płuc pozaszpitalne
+
+R
+Rak oskrzeli 27–28, 102–103
+– objawy 102
+Rak płuc 12
+Refluks żołądkowo-przełykowy 11
+Remodeling 3, 15, 82, 86, 96, 156
+Respimat 115
+Roflumilast 124, 139
+Ronchi sonori 16
+Rozedma 6, 16, 65, 91–92
+RTG klatki piersiowej, wskazania 27
+Rzężenia 16, 108, 150
+
+S
+Salbutamol 30, 104, 114, 129
+SAMA patrz: leki antycholinergiczne krótko działające
+Sepsa 23
+Serce płucne 6
+Sinica 108
+– ust 149
+Skala Centora 47–48
+Skala CRB-65 38–39
+Skala CURB 39
+Skala McIsaaca 47–48
+Skurcz oskrzeli 120–121
+Sól morska 143
+Spejser 106–107, 111, 113–115, 133
+– przebieg inhalacji 106
+– wskazania 106
+– zalety 107
+Spirometria 65–72, 132
+– ocena 66, 70–71
+– omdlenie 67
+– wskazania 66
+Staphylococcus aureus 38
+Streptococcus pneumoniae 23–25, 45–46, 48–49, 53
+Streptokoki z grupy A 23, 47
+Stridor 46, 48, 102–103
+Szczepienia 57–58
+– grypa 57, 136
+– krztusiec 58
+– pneumokoki 57–58, 136
+– zalecenia STIKO 57–58
+Szmer oddechowy ściszony 16, 91
+Szmer oskrzelowy 16, 91
+SZP patrz: zapalenie płuc szpitalne
+
+Ś
+Świsty 16–17, 29–30, 32, 88, 91, 108, 135, 149–151
+
+T
+Tachykardia 108
+Tachypnoe 108
+Teofilina 124, 139
+Test alergiczny 75–77
+Test Pricka 77
+Test RAST 77
+Test z beta-mimetykiem 59
+Tetracykliny 25–26, 49
+Tiotropium 114
+Tlenek azotu 78
+Tlenoterapia 140–141
+
+W
+Wankomycyna 44
+Wentylacja 6
+Wirus paragrypy 46
+Wirus RSV 46
+Witamina D3 58
+Włóknienie płuc 101
+Wybroczyny 23
+Wykres Fletchera 136–137
+Wymiana gazowa 5–6
+
+Z
+Zachłyśnięcie 11
+Zaćma 120
+Zapalenie jelita grubego wrzodziejące 43
+Zapalenie krtani 48
+– nadgłośniowe, patrz: zapalenie nagłośni
+– podgłośniowe ostre 46–47
+Zapalenie nagłośni 48
+Zapalenie opon mózgowych 23
+Zapalenie oskrzeli 24–25, 88
+– bakteryjne pierwotne 48–49
+– bakteryjne wtórne 49
+– obstrukcyjne 32
+– ostre 48–49
+– przewlekłe 89
+Zapalenie pęcherzyków płucnych alergiczne 77
+Zapalenie płuc 26, 51–55, 120, 138,164
+– aspiracyjne 53
+– nabyte w domu opieki 53
+– pozaszpitalne 52–55
+– – leczenie ambulatoryjne 54–55
+– – patogeny 53–54
+– szpitalne 53
+Zapalenie ucha środkowego 23, 46
+Zapalenie wyrostka robaczkowego 23–24
+Zapalenie zatok przynosowych ostre 47
+– leczenie 47
+– wskazania do antybiotykoterapii 47
+Zapalenie zatok przynosowych przewlekłe 43
+Zapelenie jelita grubego rzekomobłoniaste 43–44
+Zastrzyki depot 103, 128
+Zespół jelita drażliwego 45
+Zespół Waterhousea-Friderichsena 23
