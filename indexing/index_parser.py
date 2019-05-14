@@ -79,7 +79,7 @@ class IndexParser:
         if docx:
             lines = self._load_docx()
         else:
-            with open(self.PATH, 'r') as file:
+            with open(self.PATH, 'r', encoding="latin-1") as file:
                 lines = []
                 for line in [line.strip() for line in file.readlines()]:
                     if not line:
